@@ -274,7 +274,7 @@ module Unix::Exec
     #ensure that ~/.ssh/environment exists
     ssh_env_file_dir = Pathname.new(self[:ssh_env_file]).dirname
     mkdir_p(ssh_env_file_dir)
-    exec(Beaker::Command.new("chmod 0600 #{ssh_env_file_dir}"))
+    exec(Beaker::Command.new("chmod 0700 #{ssh_env_file_dir}"))
     exec(Beaker::Command.new("touch #{self[:ssh_env_file]}"))
     #add the constructed env vars to this host
     add_env_var('PATH', '$PATH')
